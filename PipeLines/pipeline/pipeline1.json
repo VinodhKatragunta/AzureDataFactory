@@ -364,6 +364,10 @@
 										"DirName": {
 											"value": "@pipeline().parameters.FolderName",
 											"type": "Expression"
+										},
+										"FileName": {
+											"value": "@item()",
+											"type": "Expression"
 										}
 									}
 								}
