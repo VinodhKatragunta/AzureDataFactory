@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Data From Azure Blob to On Prem SQL DB",
-				"type": "Copy",
+				"name": "Get Folder Name",
+				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,58 +15,65 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "SqlServerSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate"
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "DS_BlobFeb2023_Files",
+					"dataset": {
+						"referenceName": "DS_Container_BlobFeb2023",
 						"type": "DatasetReference",
 						"parameters": {
-							"Container": "2023",
-							"Directory": "Jan",
-							"FileName": "international_matches.csv"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_OnPremFeb2023Tables",
-						"type": "DatasetReference",
-						"parameters": {
-							"TableName": {
-								"value": "dbo.InternationalMatches",
+							"ContainerName": {
+								"value": "@pipeline().parameters.ParentContainerName",
 								"type": "Expression"
 							}
 						}
+					},
+					"fieldList": [
+						"childItems"
+					],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
 					}
-				]
+				}
+			},
+			{
+				"name": "Loop Through All Folder Exists in Container",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get Folder Name",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Folder Name').output.childItems",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
 			}
 		],
+		"parameters": {
+			"ParentContainerName": {
+				"type": "string",
+				"defaultValue": "2023"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-02-17T05:53:39Z"
 	},

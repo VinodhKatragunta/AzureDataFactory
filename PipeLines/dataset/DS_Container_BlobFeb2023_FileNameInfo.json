@@ -1,12 +1,12 @@
 {
-	"name": "DS_Container_BlobFeb2023",
+	"name": "DS_Container_BlobFeb2023_FileNameInfo",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"ContainerName": {
+			"DirName": {
 				"type": "string"
 			}
 		},
@@ -15,10 +15,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": {
-					"value": "@dataset().ContainerName",
+				"folderPath": {
+					"value": "@dataset().DirName",
 					"type": "Expression"
-				}
+				},
+				"container": "2023"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -26,6 +27,5 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
