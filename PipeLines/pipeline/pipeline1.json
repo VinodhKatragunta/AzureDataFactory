@@ -359,7 +359,13 @@
 							"inputs": [
 								{
 									"referenceName": "DS_Blob_CopyDataActivity",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"DirName": {
+											"value": "@pipeline().parameters.FolderName",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
