@@ -1,0 +1,9 @@
+{
+	"name": "LearnADFFeb2023",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3b1d1fba-4a95-4b02-af94-0425387326a0",
+		"tenantId": "1637a2e1-5a7a-4c80-a234-f7c50d3da11f"
+	}
+}
