@@ -5,21 +5,12 @@
 			"referenceName": "OnPremSQLDB",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"TableName": {
-				"type": "string",
-				"defaultValue": "InternationalMatches"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": {
-				"value": "@dataset().TableName",
-				"type": "Expression"
-			}
+			"table": "CleanUpSales"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

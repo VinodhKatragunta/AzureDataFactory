@@ -30,6 +30,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -56,12 +57,22 @@
 					},
 					"activities": [
 						{
-							"name": "Wait1",
-							"type": "Wait",
+							"name": "Calling Data Movement of Blob to SQL DB",
+							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"waitTimeInSeconds": 1
+								"pipeline": {
+									"referenceName": "pipeline1",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"FolderName": {
+										"value": "@item()",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
