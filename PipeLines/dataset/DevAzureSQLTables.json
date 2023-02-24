@@ -1,22 +1,22 @@
 {
-	"name": "DS_OnPremFeb2023Tables",
+	"name": "DevAzureSQLTables",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "OnPremSQLDB",
+			"referenceName": "DevAzureSQLDB",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"SchemaName": {
-				"type": "string",
-				"defaultValue": "dbo"
-			},
 			"TableName": {
 				"type": "string",
 				"defaultValue": "Employee"
+			},
+			"SchemaName": {
+				"type": "string",
+				"defaultValue": "dbo"
 			}
 		},
 		"annotations": [],
-		"type": "SqlServerTable",
+		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": {
@@ -28,6 +28,5 @@
 				"type": "Expression"
 			}
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
