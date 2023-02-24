@@ -30,10 +30,11 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "SqlServerSink",
+						"type": "AzureSqlSink",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate"
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
@@ -92,15 +93,15 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_OnPremFeb2023Tables",
+						"referenceName": "DevAzureSQLTables",
 						"type": "DatasetReference",
 						"parameters": {
-							"SchemaName": {
-								"value": "@pipeline().parameters.SchemaName",
-								"type": "Expression"
-							},
 							"TableName": {
 								"value": "@pipeline().parameters.TableName",
+								"type": "Expression"
+							},
+							"SchemaName": {
+								"value": "@pipeline().parameters.SchemaName",
 								"type": "Expression"
 							}
 						}
