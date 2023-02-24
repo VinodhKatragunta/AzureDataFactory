@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=False;data source=DESKTOP-K888GAH\\SQLSERVER2017;initial catalog=MavenAnalytics;user id=LocalTest",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkOTViMTJiNy0xYjNjLTQxZDEtOTgyYy0zMmNkMjlkN2NiMzgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "integrated security=False;data source=DESKTOP-K888GAH\\SQLSERVER2017;initial catalog=FEB2023;user id=LocalTest",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NTViMWE4Mi1hZTg0LTQxYzEtYTdiNi0wMTQzZDg2Mzc2MTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SELFHOSTED-IR",
