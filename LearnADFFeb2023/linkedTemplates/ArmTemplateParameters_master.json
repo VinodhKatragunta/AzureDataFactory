@@ -8,6 +8,9 @@
 		"AzureBlobStorage_connectionString": {
 			"value": ""
 		},
+		"DevAzureSQLDB_connectionString": {
+			"value": ""
+		},
 		"OnPremSQLDB_connectionString": {
 			"value": ""
 		},

@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
 		},
+		"DevAzureSQLDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DevAzureSQLDB'"
+		},
 		"OnPremSQLDB_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'OnPremSQLDB'"
@@ -44,6 +48,9 @@
 					},
 					"AzureBlobStorage_connectionString": {
 						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
+					"DevAzureSQLDB_connectionString": {
+						"value": "[parameters('DevAzureSQLDB_connectionString')]"
 					},
 					"OnPremSQLDB_connectionString": {
 						"value": "[parameters('OnPremSQLDB_connectionString')]"
