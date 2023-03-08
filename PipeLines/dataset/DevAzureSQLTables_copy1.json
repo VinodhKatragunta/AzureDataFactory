@@ -1,0 +1,16 @@
+{
+	"name": "DevAzureSQLTables_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DevAzureSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Employee"
+		}
+	}
+}
